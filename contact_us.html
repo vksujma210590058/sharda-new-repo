@@ -1,0 +1,772 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.9">
+    <title>Sharda-cinematic-production-firm</title>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+
+    <!-- Bootstrap CSS -->
+
+    <!-- Font Awesome for Icons -->
+
+
+
+
+    <link rel="icon" type="image/png" sizes="32x32" href="logo.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="logo.png" />
+
+    <style>
+
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            background: url('body1.jpg') no-repeat center center/cover;
+
+
+
+        }
+
+
+        /* Global Styles */
+
+
+        /* Header Styles */
+        .main-header {
+            position: relative;
+            width: 100%;
+            background: url('header_image.jpg') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 5px 10px;
+            color: white;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
+            flex-wrap: wrap;
+        }
+
+        .main-header .logo img {
+            width: 150px;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin: 15px;
+        }
+
+        .nav-list {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+        }
+
+        .nav-list li {
+            display: inline-block;
+        }
+
+        .nav-list a {
+            text-decoration: none;
+            color: white;
+            padding: 10px;
+            display: block;
+            font-size: 16px;
+            transition: background-color 0.3s;
+            border-radius: 5px;
+        }
+
+        .nav-list a:nth-child(1) {
+            background-color: #ff5733;
+        }
+
+        /* Home */
+        .nav-list a:nth-child(2) {
+            background-color: #33a1ff;
+        }
+
+        /* About */
+        .nav-list a:nth-child(3) {
+            background-color: #33ff6e;
+        }
+
+        /* Services */
+        .nav-list a:nth-child(4) {
+            background-color: #ffa733;
+        }
+
+        /* Contact */
+
+        .nav-list a:hover {
+            background-color: #ffd700;
+        }
+
+
+
+        /* Toggle Button Styles */
+        .toggle-btn {
+            display: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            margin: 15px;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 10px;
+                background: rgba(0, 0, 0, 0.8);
+                position: absolute;
+                top: 60px;
+                right: 50px;
+                padding: 10px;
+                border-radius: 5px;
+                z-index: 100;
+                display: none;
+                /* Initially hidden */
+            }
+
+            .navbar.active {
+                display: flex;
+                /* Show when active */
+            }
+
+            .toggle-btn {
+                display: block;
+            }
+
+
+            .nav-list {
+                flex-direction: column;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .toggle-btn {
+                display: none;
+            }
+
+
+        }
+
+        /* header finish */
+
+
+
+
+
+
+
+
+
+        /* General Footer Styles */
+        .footer {
+            width: 100%;
+            background: url('footer_image.jpg') no-repeat center center/cover;
+            color: white;
+            padding: 5px;
+            margin-top: 30px;
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Footer Styles */
+        .footer {
+            background-color: #222;
+            color: #ddd;
+            padding: 20px 0;
+        }
+
+        .footer .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer .row {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .footer .col {
+            flex: 1;
+            margin: 10px;
+            min-width: 200px;
+        }
+
+        /* Dropdown Title */
+        .dropdown-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            margin: 10px 0;
+            font-size: 18px;
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        .dropdown-icon {
+            font-size: 18px;
+            color: #ddd;
+            transition: transform 0.3s;
+        }
+
+        /* Collapsible Content */
+        .dropdown-content {
+            display: none;
+            padding: 10px 0;
+            border-top: 1px solid #444;
+            color: #bbb;
+            font-size: 19px;
+        }
+
+        .dropdown-content p {
+            margin: 5px 0;
+        }
+
+        .dropdown-content a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .dropdown-content a:hover {
+            color: #ff9800;
+        }
+
+        /* Active Dropdown */
+        .active .dropdown-content {
+            display: block;
+        }
+
+        .active .dropdown-icon {
+            transform: rotate(45deg);
+            /* Rotate the '+' to indicate active state */
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .footer .row {
+                flex-direction: column;
+            }
+
+            /* Default: Content collapsed */
+            .dropdown-content {
+                display: none;
+            }
+        }
+
+        @media (min-width: 769px) {
+
+        /* Automatically show content on larger screens */
+            .dropdown-content {
+                display: block;
+            }
+
+            /* Remove dropdown styles for larger screens */
+            .dropdown-title {
+                cursor: default;
+            }
+
+            .dropdown-icon {
+                display: none;
+            }
+        }
+
+
+        /* Floating WhatsApp Icon */
+        .floating-whatsapp {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25d366;
+            color: white;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            font-size: 24px;
+            text-decoration: none;
+        }
+
+        .floating-whatsapp:hover {
+            background-color: #22bb59;
+        }
+
+
+        /* Footer Styling */
+
+
+
+        .floating-calling {
+            position: fixed;
+            bottom: 20px;
+            left:  20px;
+            background-color: #7588f3;
+            color: white;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            font-size: 24px;
+            text-decoration: none;
+        }
+
+        .floating-calling:hover {
+            background-color: #787feb;
+        }
+
+
+
+
+    </style>
+</head>
+<body>
+
+
+
+
+
+
+<header class="main-header">
+    <div class="logo">
+        <img src="logo.png" alt="Logo">
+    </div>
+    <div class="toggle-btn" id="toggle-btn">
+        <i class="fas fa-bars"></i>
+    </div>
+    <nav class="navbar" id="navbar">
+        <ul class="nav-list">
+            <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="about_us.html"><i class="fas fa-info-circle"></i> About</a></li>
+            <!-- <li><a href="#down"><i class="fas fa-cogs"></i> Services</a></li> -->
+            <li><a href="contact_us.html"><i class="fas fa-envelope"></i> Contact</a></li>
+
+
+        </ul>
+
+    </nav>
+</header>
+
+
+
+
+
+<style>
+    /* General Styling */
+
+
+    .contact-container {
+        max-width: 900px;
+        margin: 50px auto;
+        padding: 20px;
+        /* background: #fff; */
+        border-radius: 10px;
+        /* box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); */
+        text-align: center;
+        overflow: hidden;
+        animation: fadeIn 1.5s ease-in-out;
+    }
+
+    header h1 {
+        font-size: 2.8rem;
+        color: #007BFF;
+        margin-bottom: 10px;
+        animation: slideIn 1s ease-in-out;
+    }
+
+    header p {
+        color: #555;
+        margin-bottom: 20px;
+    }
+
+    /* Contact Card Styling */
+    .contact-card {
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 30px;
+        flex-wrap: wrap;
+    }
+
+    .info-item {
+        flex: 1;
+        margin: 10px;
+        padding: 20px;
+        background: #f8f9fa;
+        border-radius: 10px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        text-align: center;
+        cursor: pointer;
+    }
+
+    .info-item:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .info-item h3 {
+        font-size: 1.4rem;
+        color: #007BFF;
+        margin-bottom: 10px;
+    }
+
+    .info-item p a {
+        color: #007BFF;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .info-item p a:hover {
+        text-decoration: underline;
+    }
+
+    .icon {
+        font-size: 2rem;
+        margin-bottom: 10px;
+    }
+
+    /* Form Styling */
+    .contact-form {
+        margin-top: 20px;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+        text-align: left;
+    }
+
+    .contact-form label {
+        display: block;
+        font-weight: bold;
+        color: #555;
+        margin-bottom: 5px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 1rem;
+        margin-bottom: 10px;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+        border-color: #007BFF;
+        outline: none;
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    }
+
+    .contact-form button {
+        width: 100%;
+        padding: 10px 20px;
+        background-color: #007BFF;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        font-size: 1.2rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .contact-form button:hover {
+        background-color: #0056b3;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+
+    @keyframes slideIn {
+        from {
+            transform: translateY(-20px);
+            opacity: 0;
+        }
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .contact-card {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .info-item {
+            margin: 10px 0;
+        }
+    }
+
+    @media (max-width: 480px) {
+        header h1 {
+            font-size: 2rem;
+        }
+
+        .contact-form button {
+            font-size: 1rem;
+        }
+    }
+
+</style>
+<body>
+
+
+
+    <h3 style="text-align: center;">
+        Welcome our Photography World
+    </h3>
+    <img src="IMG_0156.jpg" style="width: 100%;">
+
+
+
+
+<div class="contact-container">
+    <header>
+        <h3>Contact Us</h3>
+        <p>We’re here to help! Reach out to us anytime.</p>
+    </header>
+
+    <div class="contact-card">
+        <div class="info-item">
+            <div class="icon"><i class="fas fa-map-marker-alt"  style="color:#08d37e"></i></div>
+            <h3>Address</h3>
+            <p>Sharda-cinematic-production-firm</p>
+        </div>
+        <div class="info-item">
+            <div class="icon"><i>&#128231;</i></div>
+            <h3>Email</h3>
+            <p><a href="mailto:{{base_data_gmail}}">Mail</a></p>
+        </div>
+        <div class="info-item">
+            <div class="icon"><i>&#128222;</i></div>
+            <h3>Phone</h3>
+            <p><a href="tel:917906840753">+91 7906840753</a></p>
+        </div>
+    </div>
+
+    <form class="contact-form" id="contactForm">
+        <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Your Email</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+        </div>
+        <div class="form-group">
+            <label for="message">Your Message</label>
+            <textarea id="message" name="message" rows="6" placeholder="Type your message here..." required></textarea>
+        </div>
+        <button type="submit" id="submitBtn">Send Message</button>
+    </form>
+
+</div>
+
+
+
+
+
+
+
+
+
+    <script>
+    // Select the form and button
+    const form = document.getElementById('contactForm');
+    const submitBtn = document.getElementById('submitBtn');
+
+    // Add event listener to handle form submission
+    form.addEventListener('submit', function (e) {
+        e.preventDefault(); // Prevent the default form submission behavior
+
+        // Get the form values
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const message = document.getElementById('message').value.trim();
+
+        // Validate fields (Optional)
+        if (!name || !email || !message) {
+            alert('Please fill out all fields!');
+            return;
+        }
+
+        // Construct the WhatsApp URL
+        const phone = '917906840753'; // Replace with your WhatsApp number
+        const whatsappMessage = `Hello, my name is ${name}. My email is ${email}. Here is my message: ${message}`;
+        const whatsappUrl = `https://wa.me/${phone}?text=${encodeURIComponent(whatsappMessage)}`;
+
+        // Open WhatsApp in a new tab
+        window.open(whatsappUrl, '_blank');
+    });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+
+</script>
+<!-- Floating WhatsApp Icon -->
+
+<a href="https://wa.me/917906840753" class="floating-whatsapp" target="_blank"
+   title="Chat on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+</a>
+
+
+
+<a href="tel:917906840753" class="floating-calling" target="_blank"
+   title="Call Now">
+    <i class="fas fa-phone"></i>
+
+</a>
+
+
+
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h5 class="dropdown-title">
+                    About Us
+                    <span class="dropdown-icon">+</span>
+                </h5>
+                <div class="dropdown-content">
+                    <div class="social-icons">
+                        <p><i class="fas fa-info-circle" style="color:#7d9fea"></i> <a href="#">Sharda-cinematic-production-firm</a></p>
+                        <p><i class="fas fa-home"  style="color:#23e3a0"></i> <a
+                                href="/">home</a></p>
+                        <p><i class="fas fa-users" style="color:#3398da"></i> <a
+                                href="/">Meet Our Team</a> </p>
+                        <p><i class="fas fa-cubes" style="color:#e760db"></i> <a
+                                href="/">A Virtual Tour</a></p>
+                        <p><i class="fas fa-phone" style="color:#789bf6"></i> <a
+                                href="/">Contact Us</a></p>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <h5 class="dropdown-title">
+                    Contact Us
+                    <span class="dropdown-icon">+</span>
+                </h5>
+                <div class="dropdown-content">
+                    <div class="social-icons">
+                        <p><i class="fas fa-phone" style="color:lightskyblue"></i> <a href="tel:917906840753">Cantact</a></p>
+                        <p><i class="fas fa-envelope" style="color:#440ce8"></i> <a
+                                href="mailto:{{base_data_gmail}}">Email</a></p>
+                        <p><i class="fas fa-map-marker-alt"  style="color:#08d37e"></i> <a
+                                href="{{base_data_location_url}}">location</a></p>
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <h5 class="dropdown-title">
+                    Connect with us
+                    <span class="dropdown-icon">+</span>
+                </h5>
+                <div class="dropdown-content">
+                    <div class="social-icons">
+                        <p><i class="fab fa-linkedin" style="color:lightskyblue"></i> <a
+                                href="{{base_data_linkedin}}">Linkedin</a></p>
+                        <p><i class="fab fa-twitter" style="color:lightskyblue"></i> <a
+                                href="{{base_data_twitter}}">Twitter</a></p>
+                        <p><i class="fab fa-youtube" style="color:red"></i> <a
+                                href="{{base_data_youtube}}">Youtube</a></p>
+                        <p><i class="fab fa-instagram" style="color:#e827cc33; "></i> <a
+                                href="{{base_data_instagram}}">Instagram</a></p>
+                        <p><i class="fab fa-facebook" style="color:#5e80f1;"></i> <a href="{{base_data_facebook}}">Facebook</a></p>
+                        <p><i class="fab fa-whatsapp" style="color:#26ef60"></i> <a
+                                href="https//wa.me/917906840753">WhatsApp</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center py-3" style="text-align:center;">
+            2024 Make &copy; Someone's Day. All rights reserved.
+        </div>
+    </div>
+</footer>
+
+
+
+
+
+<script>
+    const toggleBtn = document.getElementById('toggle-btn');
+    const navbar = document.getElementById('navbar');
+
+    toggleBtn.addEventListener('click', () => {
+        navbar.classList.toggle('active');
+    });
+</script>
+
+<script>
+    // Select all dropdown titles
+    const dropdownTitles = document.querySelectorAll('.dropdown-title');
+
+    dropdownTitles.forEach((title) => {
+        title.addEventListener('click', () => {
+            const parent = title.parentElement;
+
+            // Toggle the active class on the clicked title's parent
+            parent.classList.toggle('active');
+
+            // Close other dropdowns if needed (optional)
+            dropdownTitles.forEach((otherTitle) => {
+                if (otherTitle !== title) {
+                    otherTitle.parentElement.classList.remove('active');
+                }
+            });
+        });
+    });
+</script>
+<!-- Bootstrap JS and Popper.js -->
+</body>
+
+
+</html>
